@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -5,23 +6,44 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts?$/,
-        use: 'ts-loader',
+        test: /\.ts$/,
         exclude: /node_modules/,
+        use: ["ts-loader"]
       },
+      {
+        test: /\.html$/i,
+        use: ["html-loader"],
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: ["file-loader"]
+      }
     ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    publicPath: "/",
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+    //assetModuleFilename: "images/[hash][ext][query]",
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.resolve(__dirname, "public/index.html"),
+    })
+    ],
+  devtool: 'inline-source-map',
   devServer: {
-    // 포트 번호 설정
     port: 3000,
-    // 핫 모듈 교체(HMR) 활성화 설정
-    hot: true
+    hot: true,
+    compress: true
   }
 };
