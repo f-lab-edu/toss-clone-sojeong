@@ -1,7 +1,7 @@
 import { Component } from "@/core";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Detail from "./Detail";
+import AtricleList from "@/components/article/ArticleList";
 
 class Main extends Component {
     constructor($target: Element|null, $props?: any) {
@@ -12,7 +12,7 @@ class Main extends Component {
         return `
             <div class="header">
             </div>
-            <div class="detail">
+            <div class="article-list">
             </div>
             <footer class="footer">
             </footer>
@@ -22,11 +22,11 @@ class Main extends Component {
     mounted(): void {
         if (this.$target) {
             const $header = this.$target.querySelector('header');
-            const $detail = this.$target.querySelector('detail');
+            const $articleList = this.$target.querySelector('article-list');
             const $footer = this.$target.querySelector('footer');
             
             new Header($header);
-            new Detail($detail);
+            new AtricleList($articleList);
             new Footer($footer);
         }
     }

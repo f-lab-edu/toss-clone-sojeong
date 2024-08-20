@@ -1,8 +1,8 @@
 import { Component } from "@/core";
 
-class AtricleList extends Component {
+class MainSide extends Component {
     constructor($target: Element|null, $props?: any) {
-        super($target, $props);
+        super ($target, $props);
     }
 
     template(): string {
@@ -12,6 +12,7 @@ class AtricleList extends Component {
     mounted(): void {
         
     }
+
 }
 
-export default AtricleList
+export default MainSide;
