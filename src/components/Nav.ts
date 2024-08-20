@@ -1,7 +1,7 @@
-import {Component, Type } from "../core";
+import {Component, Type } from "@/core";
 
 class Nav extends Component {
-    constructor($target: HTMLElement, $props: any) {
+    constructor($target: Element|null, $props?: any) {
         super($target, $props)
     }
 
@@ -10,18 +10,28 @@ class Nav extends Component {
     }
 
     template(): string {
+        const navContents = [
+            'SLASH',
+            'SIMPLICITY',
+            '구독하기',
+            '채용 바로가기'
+        ];
+
         return `
-            <nav class="navbar">
-                <div style="background-image: url('../public/assets/toss_tech.png')">
-                    <div>
-                        <div>
-                        </div>
-                         toss-tech
-                        <div>
-                        </div>
-                    </div>
+            <div class="navbar_container">
+                <div class="navbar_logo">
+                    <a>
+                        <img src="/assets/toss_tech.png" alt="메인이동" height=50 width=140 />
+                    </a>
                 </div>
-            </nav>
+                <div class="navbar_contents">
+                    <ul>
+                        ${navContents.map((content) => (
+                            `<li><button>${content}</button></li>`
+                        )).join('')}
+                    </ul>
+                </div>
+            </div>
         `
     }
 }

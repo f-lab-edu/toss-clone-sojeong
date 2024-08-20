@@ -1,5 +1,5 @@
-import App from "./App";
+import App from "@/App";
 
-const $app = document.querySelector('#app') as HTMLElement;
+const $app = document.querySelector('#app');
 
 new App($app);
