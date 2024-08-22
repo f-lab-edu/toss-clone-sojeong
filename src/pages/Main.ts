@@ -1,33 +1,29 @@
 import { Component } from "@/core";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Tab from "@/components/Tab";
 import AtricleList from "@/components/article/ArticleList";
+import MainSide from "@/components/MainSide";
 
 class Main extends Component {
-    constructor($target: Element|null, $props?: any) {
-        super($target, $props);
-    }
-
     template(): string {
         return `
-            <div class="header">
+            <div class="tab">
             </div>
-            <div class="article-list">
+            <div class="article_list">
             </div>
-            <footer class="footer">
-            </footer>
+            <div class="main_side">
+            </div>
         `;
     }
 
     mounted(): void {
         if (this.$target) {
-            const $header = this.$target.querySelector('header');
-            const $articleList = this.$target.querySelector('article-list');
-            const $footer = this.$target.querySelector('footer');
+            const $tab = this.$target.querySelector('.tab');
+            const $articleList = this.$target.querySelector('.article_list');
+            const $mainSide = this.$target.querySelector('.main_side');
             
-            new Header($header);
+            new Tab($tab);
             new AtricleList($articleList);
-            new Footer($footer);
+            new MainSide($mainSide);
         }
     }
 }

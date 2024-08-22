@@ -1,10 +1,6 @@
 import { Component } from "@/core";
 
 class Footer extends Component {
-    constructor($target: Element|null, $props?: any) {
-        super($target, $props);
-    }
-
     template(): string {
         return `
             <div>

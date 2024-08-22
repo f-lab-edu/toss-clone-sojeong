@@ -1,10 +1,6 @@
 import {Component, Type } from "@/core";
 
 class Nav extends Component {
-    constructor($target: Element|null, $props?: any) {
-        super($target, $props)
-    }
-
     mounted(): void {
         
     }
