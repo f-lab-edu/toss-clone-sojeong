@@ -14,7 +14,9 @@ class App extends Component {
         return `
             <nav class="navbar">
             </nav>
-            <div class="main">
+            <div class="contents">
+                <div class="main">
+                </div>
             </div>
             <footer class="footer">
             </footer>

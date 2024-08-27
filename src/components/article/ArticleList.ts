@@ -6,7 +6,10 @@ class AtricleList extends Component {
     }
 
     template(): string {
-        return ``;
+        return `
+            <div class="article-list">
+            </div>
+        `;
     }
 
     mounted(): void {

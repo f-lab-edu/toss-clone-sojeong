@@ -17,7 +17,7 @@ class Nav extends Component {
             <div class="navbar_container">
                 <div class="navbar_logo">
                     <a>
-                        <img src="/assets/toss_tech.png" alt="메인이동" height=50 width=140 />
+                        <img src="/assets/toss_tech.png" alt="메인이동" height=45 width=140 />
                     </a>
                 </div>
                 <div class="navbar_contents">

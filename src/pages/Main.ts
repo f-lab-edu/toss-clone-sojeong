@@ -1,29 +1,29 @@
 import { Component } from "@/core";
-import Tab from "@/components/Tab";
-import AtricleList from "@/components/article/ArticleList";
-import MainSide from "@/components/MainSide";
+import MainContainer from "@/components/main/MainContainer";
+
 
 class Main extends Component {
     template(): string {
         return `
-            <div class="tab">
-            </div>
-            <div class="article_list">
-            </div>
-            <div class="main_side">
+            <div>
+                <div class="toss_banner">
+                    <span>
+                        <img
+                            src="/assets/toss_banner.png"
+                        />
+
+                    </span>
+                </div>
+                <div class="main_container">
+                </div>
             </div>
         `;
     }
 
     mounted(): void {
         if (this.$target) {
-            const $tab = this.$target.querySelector('.tab');
-            const $articleList = this.$target.querySelector('.article_list');
-            const $mainSide = this.$target.querySelector('.main_side');
-            
-            new Tab($tab);
-            new AtricleList($articleList);
-            new MainSide($mainSide);
+            const $maniContainer = document.querySelector(".main_container");
+            new MainContainer($maniContainer, this.$props);
         }
     }
 }

@@ -1,14 +1,15 @@
 import { Component } from "@/core";
 
-class MainSide extends Component {
+class Recent extends Component {
     template(): string {
-        return `<div></div>`;
+        return `
+        `;
     }
 
     mounted(): void {
-        
+
     }
 
 }
 
-export default MainSide;
+export default Recent;
