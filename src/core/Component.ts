@@ -26,8 +26,6 @@ class Component {
         }
 
         this.$target.innerHTML = this.template();
-
-        this.mounted();
       }
 
       mounted(): void {}
