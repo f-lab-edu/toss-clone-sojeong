@@ -2,6 +2,7 @@ import { Component } from "@/core";
 import Tab from "../Tab";
 import AtricleList from "../article/ArticleList";
 import { getPosts } from "@/apis";
+import { ComponentClass } from "@/core/Component";
 
 class MainLeft extends Component {
     setup(): void {
@@ -9,28 +10,33 @@ class MainLeft extends Component {
             postList: []
         };
     }
+
+    mounted(): void {
+        getPosts()
+        .then(res => {
+            this.setState({
+                postList: res.resultData
+            });
+        });
+    }
     
     template(): string {
         return `
             <div class="tab">
             </div>
-            <div class="article_list">
+            <div>
+                <div class="article_list">
+                </div>
             </div>
         `;
     }
 
-    mounted(): void {
+    createComponent(): void {
         const $tab = document.querySelector('.tab');
         const $articleList = document.querySelector('.article_list');
 
         new Tab($tab, this.$props);
-        new AtricleList($articleList, this.$props);
-
-        getPosts()
-        .then(res => {
-            
-            console.log({res})
-        })
+        new AtricleList($articleList, {postList: this.$state.postList});
     }
 
 }

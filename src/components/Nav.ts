@@ -1,10 +1,6 @@
 import {Component, Type } from "@/core";
 
 class Nav extends Component {
-    mounted(): void {
-        
-    }
-
     template(): string {
         const navContents = [
             'SLASH',
@@ -29,6 +25,10 @@ class Nav extends Component {
                 </div>
             </div>
         `
+    }
+    
+    mounted(): void {
+        
     }
 }
 

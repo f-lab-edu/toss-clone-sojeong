@@ -1,6 +1,10 @@
 import { Component } from "@/core";
 
 class Footer extends Component {
+    mounted(): void {
+        
+    }
+    
     template(): string {
         return `
             <div>
@@ -11,10 +15,6 @@ class Footer extends Component {
             </div>
             <span>㈜비바리퍼블리카 Copyright © Viva Republica, Inc. All Rights Reserved.</span>
         `;
-    }
-
-    mounted(): void {
-        
     }
 }
 

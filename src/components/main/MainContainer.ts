@@ -10,16 +10,16 @@ class MainContainer extends Component {
             <div class="main_right">
             </div>
         `;
+        
     }
-
-    mounted(): void {
+    
+    createComponent(): void {
         const $mainLeft = document.querySelector(".main_left");
         const $mainRight = document.querySelector(".main_right");
 
         new MainLeft($mainLeft, this.$props);
         new MainRight($mainRight, this.$props);
     }
-
 }
 
 export default MainContainer;

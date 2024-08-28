@@ -23,10 +23,6 @@ class Tab extends Component {
           </div>
         `;
     };
-
-    mounted(): void {
-
-    };
 }
 
 export default Tab;

@@ -44,7 +44,7 @@ class MainRight extends Component {
         `;
     }
 
-    mounted(): void {
+    createComponent(): void {
         const $popularList = document.querySelectorAll('article');
         const $recent = document.querySelector('.recent');
         const $tag = document.querySelector('.tag');
@@ -56,7 +56,6 @@ class MainRight extends Component {
         // new Recent($recent);
         // new Tag($tag);
     }
-
 }
 
 export default MainRight;

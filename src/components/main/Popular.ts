@@ -1,10 +1,6 @@
 import { Component } from "@/core";
 
 class Popular extends Component {
-    // constructor($target: Element | null, $props : any) {
-    //     super($target, $props);
-    // }
-
     template(): string {
         console.log(this.$props)
         if (this.$props?.popular) {
@@ -20,11 +16,6 @@ class Popular extends Component {
             `;
         } else return ``
     }
-
-    mounted(): void {
-
-    }
-
 }
 
 export default Popular;
