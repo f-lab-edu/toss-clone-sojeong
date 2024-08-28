@@ -1,8 +1,7 @@
 import { Component } from "@/core";
-import Tab from "../Tab";
+import Tab from "@/components/main/Tab";
 import AtricleList from "../article/ArticleList";
 import { getPosts } from "@/apis";
-import { ComponentClass } from "@/core/Component";
 
 class MainLeft extends Component {
     setup(): void {
