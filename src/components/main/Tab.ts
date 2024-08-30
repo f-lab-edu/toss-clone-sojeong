@@ -7,15 +7,36 @@ class Tab extends Component {
         };
     }
 
+    setEvent(): void {
+      this.$target?.addEventListener('click', (e) => this.handleClickTab(e));
+    }
+
+    handleClickTab = (e: Event) => {
+      const {onSetTabIdx} = this?.$props;
+      console.log(this.$props)
+      const target = e?.target as HTMLDivElement;
+      const key = target?.getAttribute('key');
+
+      if (key && onSetTabIdx) {
+        onSetTabIdx(Number(key));
+      }
+    }
+
     template(): string {
-      const {tabIdx} = this.$state;
+      const {tabIdx} = this?.$props;
+
         return `
           <div class="tab_bar">
           ${['전체', '개발', '디자인'].map((tab, idx) => (
             `
-              <div class="tab_line ${tabIdx === idx ? 'select' : ''}"></div> 
-              <div class="tab_item"">
-                <div>
+              <div 
+                class="tab_line ${tabIdx === idx ? '--indicated' : ''}" 
+                key=${idx}
+                style="transform: translateX(${69*idx}px) translateZ(0px);"
+              >
+              </div> 
+              <div class="tab_item" key=${idx}>
+                <div key=${idx}>
                   ${tab}
                 </div>
               </div>

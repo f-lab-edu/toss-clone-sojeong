@@ -1,6 +1,10 @@
 import { Component } from "@/core";
 
 class AtricleList extends Component {
+    setEvent(): void {
+    
+    }
+
     template(): string {
         return `
             <div style="width: 100, list-style: 'none'">

@@ -13,6 +13,7 @@ class Component {
         this.$props = $props;
         this.setup();
         this.render();
+        this.setEvent();
         this.mounted();
       }
 
