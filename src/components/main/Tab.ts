@@ -2,28 +2,29 @@ import { Component } from "@/core";
 
 class Tab extends Component {
     setup(): void {
-        this.$state = {
-          tabIdx: 0
-        };
+
     }
 
     setEvent(): void {
-      this.$target?.addEventListener('click', (e) => this.handleClickTab(e));
+      this.$target?.addEventListener('click', this.handleClickTab.bind(this));
     }
 
-    handleClickTab = (e: Event) => {
-      const {onSetTabIdx} = this?.$props;
+    updated() {
 
+    }
+
+    handleClickTab(e: Event): void {
+      const {onSetTabIdx} = this.$props;
       const target = e?.target as HTMLDivElement;
       const key = target?.getAttribute('key');
 
       if (key && onSetTabIdx) {
-        onSetTabIdx(Number(key));
+        onSetTabIdx (Number(key));
       }
     }
 
     template(): string {
-      const {tabIdx} = this?.$props;
+      const {tabIdx} = this.$props;
 
         return `
           <div class="tab_bar">

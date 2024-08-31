@@ -4,8 +4,26 @@ import AtricleList from "../article/ArticleList";
 
 class MainLeft extends Component {
     setup(): void {
+        const setInitialTabIdx = () => {
+            const currentPath = window.location.pathname.replace('/', '');
+            let tabIdx = 0;
+            
+            switch(currentPath) {
+                case 'tech' :
+                    tabIdx = 1;
+                    break;
+                case 'design':
+                    tabIdx = 2;
+                    break;
+                default: 
+                    break;
+            }
+
+            return tabIdx
+        }
+
         this.$state = {
-            tabIdx: 0
+            tabIdx: setInitialTabIdx()
         };
     }
 
@@ -14,9 +32,21 @@ class MainLeft extends Component {
     }
 
     mounted(): void {
+
     }
 
     handleSetTabIdx(idx: Number): void {
+        switch(idx) {
+            case 1: 
+                history.pushState(null, '', 'tech');
+                break;
+            case 2:
+                history.pushState(null, '', 'design');
+                break;
+            default: 
+                history.pushState(null, '', '');
+        }
+
         this.setState({tabIdx: idx});
     }
     

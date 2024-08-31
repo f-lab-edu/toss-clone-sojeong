@@ -39,6 +39,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      publicPath: '/',
       filename: 'index.html',
       template: path.resolve(__dirname, "public/index.html"),
     })
@@ -47,6 +48,7 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: true,
-    compress: true
+    compress: true,
+    historyApiFallback: true,
   }
 };
