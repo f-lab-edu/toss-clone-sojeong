@@ -3,13 +3,11 @@ import { changeRoute } from "@/core/router";
 
 class PopularList extends Component {
     setEvent(): void {
-        const $article = document.querySelector('.popular_article');
-        
-        if($article) {
-            $article.addEventListener('click', (e) => {
+        if(this.$target) {
+            this.$target.addEventListener('click', (e) => {
                 const target = e.target as HTMLElement;
-                const _$article = target.closest('.popular_article');
-                const articleId = _$article?.getAttribute('key');
+                const $article = target.closest('.popular_article');
+                const articleId = $article?.getAttribute('key');
 
                 if (articleId) {
                     changeRoute(null, `article/${articleId}`);

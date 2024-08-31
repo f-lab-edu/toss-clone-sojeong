@@ -3,13 +3,11 @@ import { changeRoute } from "@/core/router";
 
 class RecentList extends Component {   
     setEvent(): void {
-        const $recnet = document.querySelector('.recent');
-
-        if ($recnet) {
-            $recnet.addEventListener('click', (e) => {
+        if (this.$target) {
+            this.$target.addEventListener('click', (e) => {
                 const target = e.target as HTMLElement;
-                const _$recent = target?.closest('.recent');
-                const articleId = _$recent?.getAttribute('key');
+                const $recent = target?.closest('.recent');
+                const articleId = $recent?.getAttribute('key');
 
                 if (articleId) {
                     changeRoute(null, `article/${articleId}`);
