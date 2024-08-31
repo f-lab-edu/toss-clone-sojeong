@@ -587,6 +587,103 @@
     margin: 0px auto;
 }
 
+.detail_article > header > img {
+    width: 100%;
+    margin-top: 36px;
+    border-radius: 12px;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.detail_article > header > h1 {
+    margin-top: 20px;
+    margin-top: 36px;
+    margin-bottom: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #333d4b;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.detail_article > header > div > div {
+    display: inline-block;
+    margin: 0 8px 10px 0;
+    cursor: pointer;
+}
+
+.detail_article > header > div > div > a {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    background: #f2f4f6;
+    color: #4e5968;
+    padding: 4px 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 19px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.detail_article > header > section {
+    margin-top: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+section > div > .writer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    grid-area: outline;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 8px;
+    font-size: 17px;
+    margin-bottom: 2px;
+}
+
+section > div > .writer > .name {
+    grid-area: name;
+    margin: 0;
+    margin-right: 4px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #4e5968;
+    white-space: nowrap;
+}
+
+section > div > .writer > .desc {
+    grid-area: name;
+    margin: 0;
+    margin-right: 4px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #4e5968;
+    white-space: nowrap;
+}
+
+section > div > .time {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #8b95a1;
+}
+
 .footer {
     font-size: 15px;
     display: flex;

@@ -7,11 +7,13 @@ class AtricleList extends Component {
     }
 
     handleClickArticle(e: Event): void {
+        const {postList} = this.$props;
         const target = e.target as HTMLDListElement;
         const articleId = target.getAttribute("key");
         
         if (articleId) {
-            changeRoute(null, `article/${Number(articleId)}`);
+            const post = postList.find((post: any) => post.id == articleId)
+            changeRoute(post, `article/${Number(articleId)}`);
         }
     }
 

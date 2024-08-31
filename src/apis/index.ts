@@ -5,6 +5,11 @@ export async function getPosts() {
     return response.json();
 }
 
+export async function getPost({id} :{id: any}) {
+    const response =  await fetch(`${LOCAL_URL}/posts/${id}`, {method: 'GET'})
+    return response.json();
+}
+
 export async function getLives() {
     const response =  await fetch(`${LOCAL_URL}/lives`, {method: 'GET'})
     return response.json();

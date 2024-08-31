@@ -15,8 +15,11 @@ class Router extends Component {
 
     handleChangeRoute(e: any): void {
       const {data, url} = e.detail;
-      history.pushState(null, '', `${url}`);
-      this.render();
+      
+      if (url) {
+        history.pushState(data, '', `${url}`);
+        this.render();
+      }
     }
 
     createComponent(): void {
