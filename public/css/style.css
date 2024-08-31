@@ -814,3 +814,13 @@ section > div > .time {
     -ms-flex-align: center;
     align-items: center;
 }
+
+.footer > div > a {
+    color: #6b7684;
+    margin-left: 20px;
+}
+
+.footer > span {
+    color: grey;
+    padding-left: 20px;
+}

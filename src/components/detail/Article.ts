@@ -3,6 +3,7 @@ import { Component } from "@/core";
 class Atricle extends Component {
     template(): string {
         const {post} = this.$props;
+        console.log({post})
 
         return `
             ${post ? (
@@ -44,6 +45,13 @@ class Atricle extends Component {
                         </div>
                     </section>
                 </header>
+                <div class="article_contents">
+                    <blockquote>
+                        ${post.fullDescription}
+                    </blockquote>
+                </div>
+                <div>
+                </div>
                 `
             ) : (
                 ''
