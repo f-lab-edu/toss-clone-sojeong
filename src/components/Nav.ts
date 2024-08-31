@@ -31,9 +31,23 @@ class Nav extends Component {
                 </div>
                 <div class="navbar_contents">
                     <ul>
-                        ${navContents.map((content) => (
-                            `<li><button>${content}</button></li>`
-                        )).join('')}
+                        ${navContents.map((content, idx) => {
+                            if(idx < 2) {
+                                return `
+                                <li>
+                                    <button class="nav_btn">
+                                        ${content}
+                                    </button>
+                                    <img src="/assets/toss_nav_slash.png">
+                                    </img>
+                                </li>
+                                `
+                            } else if (idx === 2) {
+                                return `<li><button class="nav_btn_publish">${content}</button></li>`
+                            } else {
+                                return `<li><button class="nav_btn_recruit">${content}</button></li>`
+                            }
+                        }).join('')}
                     </ul>
                 </div>
             </div>
