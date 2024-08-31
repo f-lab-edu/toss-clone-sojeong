@@ -1,6 +1,6 @@
 import { Component } from "@/core";
 import Tab from "@/components/main/Tab";
-import AtricleList from "../article/ArticleList";
+import AtricleList from "@/components/main/ArticleList";
 
 class MainLeft extends Component {
     setup(): void {

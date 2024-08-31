@@ -26,6 +26,7 @@
     min-height: 60px;
     min-height: var(--navbar-height);
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .navbar_contents {
@@ -294,6 +295,7 @@
     -webkit-text-decoration: none;
     text-decoration: none;
     padding: 24px 0px;
+    color:black;
 }
 
 .article_content {
@@ -578,6 +580,11 @@
     font-weight: 600;
     font-size: 13px;
     line-height: 1.6;
+}
+
+.detail {
+    width: 700px;
+    margin: 0px auto;
 }
 
 .footer {

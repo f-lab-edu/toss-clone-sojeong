@@ -1,6 +1,19 @@
 import {Component, Type } from "@/core";
+import { changeRoute } from "@/core/router";
 
 class Nav extends Component {
+    setEvent(): void {
+        const $navbarLogo = document.querySelector('.navbar_logo');
+
+        if ($navbarLogo) {
+            $navbarLogo.addEventListener('click', this.handleClickLogo.bind(this));
+        }
+    }
+
+    handleClickLogo(e: Event): void {
+        changeRoute(null, '/');
+    }
+
     template(): string {
         const navContents = [
             'SLASH',
@@ -25,10 +38,6 @@ class Nav extends Component {
                 </div>
             </div>
         `
-    }
-    
-    mounted(): void {
-        
     }
 }
 

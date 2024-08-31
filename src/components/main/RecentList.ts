@@ -1,6 +1,23 @@
 import { Component } from "@/core";
+import { changeRoute } from "@/core/router";
 
 class RecentList extends Component {   
+    setEvent(): void {
+        const $recnet = document.querySelector('.recent');
+
+        if ($recnet) {
+            $recnet.addEventListener('click', (e) => {
+                const target = e.target as HTMLElement;
+                const _$recent = target?.closest('.recent');
+                const articleId = _$recent?.getAttribute('key');
+
+                if (articleId) {
+                    changeRoute(null, `article/${articleId}`);
+                }
+            });
+        }
+    }   
+
     template(): string {
         const {recentList} = this.$props;
 
@@ -9,7 +26,7 @@ class RecentList extends Component {
                 (
                     recentList.map((recent: any) => (
                         `
-                        <div href="/article/${recent.아티클id}" class="recent">
+                        <div class="recent" key=${recent.아티클id}>
                             <div class="profile">
                                 <div>
                                     <div>
@@ -17,17 +34,17 @@ class RecentList extends Component {
                                     </div>
                                 </div>
                                 <span style="color: rgb(51, 61, 75); font-weight: 700; font-size: 13px">
-                                    신나는고래
+                                    ${recent.작성자}
                                 </span>
                             </div>
                             <div class="feedback">
                                 <span>
-                                    재미있네요...
+                                    ${recent.댓글}
                                 </span>
                             </div>
                             <div class="article">
                                 <span class="typography typography--xsmall typography--medium color--grey700 css-0 e1yiakpq1">
-                                    Node.js 라이브러리 배포 파이프라인에 플러그인 시스템 도입기
+                                    ${recent.아티클제목}
                                 </span>
                             </div>
                         </div>

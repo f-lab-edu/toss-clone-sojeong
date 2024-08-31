@@ -1,13 +1,30 @@
 import { Component } from "@/core";
+import { changeRoute } from "@/core/router";
 
 class PopularList extends Component {
+    setEvent(): void {
+        const $article = document.querySelector('.popular_article');
+        
+        if($article) {
+            $article.addEventListener('click', (e) => {
+                const target = e.target as HTMLElement;
+                const _$article = target.closest('.popular_article');
+                const articleId = _$article?.getAttribute('key');
+
+                if (articleId) {
+                    changeRoute(null, `article/${articleId}`);
+                }
+            })
+        }
+    }
+
     template(): string {
         const {popularList} = this.$props;
 
         return `
             ${popularList?.length > 0 && (
                 popularList.map((popular: any) => (
-                    `<article style="display: block">
+                    `<article class='popular_article' style="display: block" key=${popular.id}>
                         <div class="popular">
                             <span class="title">
                                 ${popular.title}

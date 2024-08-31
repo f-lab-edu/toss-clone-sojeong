@@ -1,27 +1,35 @@
 import { Component } from "./core";
-import { getRoutes } from "./core/router";
+import { getRouteView } from "./core/router";
+import Detail from "./pages/Detail";
 import Main from "./pages/Main";
+
+
 
 class Router extends Component {
     setEvent(): void {
-        window.addEventListener('popstate', this.handleChangeRoute.bind(this));
+        window.addEventListener('changeroute', this.handleChangeRoute.bind(this));
+        window.addEventListener('popstate', (e) => {
+            this.render();
+        });
     }
 
-    handleChangeRoute(param: any): void {
-      
+    handleChangeRoute(e: any): void {
+      const {data, url} = e.detail;
+      history.pushState(null, '', `${url}`);
+      this.render();
     }
 
     createComponent(): void {
         if (this.$target) {
             const currentPath = window.location.pathname;
-            const view = getRoutes(currentPath);
+            const view = getRouteView(currentPath);
 
             switch(view) {
                 case 'Main':
                     new Main(this.$target, this.$props);
                     break;
                 case 'Detail':
-                    new Main(this.$target, this.$props);
+                    new Detail(this.$target, this.$props);
                     break;
                 default:
                     new Main(this.$target, this.$props);

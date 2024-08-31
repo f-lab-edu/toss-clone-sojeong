@@ -5,16 +5,18 @@ import MainContainer from "@/components/main/MainContainer";
 class Main extends Component {
     template(): string {
         return `
-            <div>
-                <div class="toss_banner">
-                    <span>
-                        <img
-                            src="/assets/toss_banner.png"
-                        />
+            <div class="main">
+                <div>
+                    <div class="toss_banner">
+                        <span>
+                            <img
+                                src="/assets/toss_banner.png"
+                            />
 
-                    </span>
-                </div>
-                <div class="main_container">
+                        </span>
+                    </div>
+                    <div class="main_container">
+                    </div>
                 </div>
             </div>
         `;
