@@ -11,7 +11,10 @@ class Nav extends Component {
     }
 
     handleClickLogo(e: Event): void {
-        changeRoute(null, '/');
+        const currentPath = window.location.pathname;
+        if (!['/', '/tech', '/design'].includes(currentPath)) {
+            changeRoute(null, '/');
+        }
     }
 
     template(): string {
