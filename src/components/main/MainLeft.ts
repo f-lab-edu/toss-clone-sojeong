@@ -1,7 +1,6 @@
 import { Component } from "@/core";
 import Tab from "@/components/main/Tab";
 import AtricleList from "../article/ArticleList";
-import { getPosts } from "@/apis";
 
 class MainLeft extends Component {
     setup(): void {
@@ -15,6 +14,10 @@ class MainLeft extends Component {
     }
 
     mounted(): void {
+    }
+
+    handleSetTabIdx(idx: Number): void {
+        this.setState({tabIdx: idx});
     }
     
     template(): string {
@@ -33,11 +36,6 @@ class MainLeft extends Component {
         const {tabIdx} = this.$state;
         let filteredPostList = postList;
 
-        const handleSetTabIdx = (idx: Number) => {
-            console.log(idx)
-            this.setState({tabIdx: idx});
-        }
-
         if (tabIdx === 1) {
             filteredPostList = postList
             .filter((post: any) => (post.categories.find((category: any) => category.name === '개발')));
@@ -45,13 +43,13 @@ class MainLeft extends Component {
 
         if (tabIdx === 2) {
             filteredPostList = postList
-            .filter((post: any) => (post.categories.find((category: any) => category.name === '개발')));
+            .filter((post: any) => (post.categories.find((category: any) => category.name === '디자인')));
         }
 
         const $tab = document.querySelector('.tab');
         const $articleList = document.querySelector('.article_list');
 
-        new Tab($tab, {tabIdx, onSetTabIdx: handleSetTabIdx});
+        new Tab($tab, {tabIdx, onSetTabIdx: this.handleSetTabIdx.bind(this)});
         new AtricleList($articleList, {postList: filteredPostList});
     }
 

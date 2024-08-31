@@ -41,9 +41,13 @@ class Component {
       }
 
       setState(newState: any): void {
-        this.$state = { ...this.$state, ...newState };
-        this.render();
-        this.updated();
+        const nextState = { ...this.$state, ...newState };
+        
+        if (JSON.stringify(this.$state) !== JSON.stringify(newState)) {
+          this.$state = nextState;
+          this.render();
+          this.updated();
+        }
       }
 
       updated(): void {

@@ -1,12 +1,13 @@
 import { Component } from "@/core";
 import MainLeft from "./MainLeft";
 import MainRight from "./MainRight";
-import { getPosts } from "@/apis";
+import { getLives, getPosts } from "@/apis";
 
 class MainContainer extends Component {
     setup(): void {
         this.$state = {
-            postList: []
+            postList: [],
+            liveList: [],
         };
     }
 
@@ -14,11 +15,18 @@ class MainContainer extends Component {
         getPosts()
         .then(res => {
             const postList = res.resultData;
-            console.log({postList})
+
             this.setState({
-                postList: res.resultData
+                postList
             });
         });
+
+        getLives()
+        .then(res => {
+            const liveList = res.resultData;
+
+            this.setState({liveList});
+        })
     }
 
     template(): string {
@@ -32,13 +40,13 @@ class MainContainer extends Component {
     }
     
     createComponent(): void {
-        const {postList} = this.$state;
+        const {postList, liveList} = this.$state;
 
         const $mainLeft = document.querySelector(".main_left");
         const $mainRight = document.querySelector(".main_right");
 
         new MainLeft($mainLeft, {postList});
-        new MainRight($mainRight, this.$props);
+        new MainRight($mainRight, {postList, liveList});
     }
 }
 

@@ -13,7 +13,7 @@ class Tab extends Component {
 
     handleClickTab = (e: Event) => {
       const {onSetTabIdx} = this?.$props;
-      console.log(this.$props)
+
       const target = e?.target as HTMLDivElement;
       const key = target?.getAttribute('key');
 
