@@ -84,6 +84,7 @@
   export default Component;
   ```
   
+  
 - history API와 CustomEvent를 이용한 라우팅 처리
   
   ```
