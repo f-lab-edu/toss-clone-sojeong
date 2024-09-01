@@ -11,6 +11,7 @@
 ### 프로젝트 구성
 - class형 컴포넌트 구성
 - 라이프사이클 관리를 위한 core Component class를 상속해서 구조화
+  
   ```
   [src > core > Component.ts]
   
@@ -82,7 +83,9 @@
 
   export default Component;
   ```
+  
 - history API와 CustomEvent를 이용한 라우팅 처리
+  
   ```
   [src > core > router.ts]
 
@@ -132,6 +135,7 @@
 
 
 ### eslint.config.mjs
+
 ```
   // nvm init 으로 기본 eslint 구성 설정
 
@@ -150,6 +154,7 @@
 
 
 ### .prettierrc.json
+
 ```
   {
     "semi": true,
@@ -164,6 +169,7 @@
 
 
 ### 프로젝트 실행
+
 ```
   노드 버전: v20.14.0 (.nvmrc 참조)
 
